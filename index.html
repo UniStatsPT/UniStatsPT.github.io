@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniStats</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.svg">
+</head>
+<body>  
+    <div class="container">
+        <img class="logo" src="resources/logo.png" alt="Logo">
+    </div>
+
+    <div class="container">
+        <iframe id="dashboard" title="UniStats" width="1024" height="612" src="https://app.powerbi.com/view?r=eyJrIjoiYjRhYWZhNmEtYThiNS00OWExLTgzNzYtZDNhNjI4NjgyNzY2IiwidCI6ImU0YmQ2OWZmLWU2ZjctNGMyZS1iMjQ3LTQxYjU0YmEyNDkwZSIsImMiOjh9&pageName=ReportSection0d5f0f52d150814f1354" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+    <div class="infoContainer">
+        <button class="collapsible">O que é o UniStats?
+        </button>
+        <div class="content">
+            <p>O UniStats é um website que visa dar métricas e informação sobre a entrada ao ensino superior de uma forma rápida e dinâmica.</p>
+            <p>O seu principal objetivo passa por ajudar os alunos a fazerem decisões baseadas em dados e permitir a estes terem uma visão geral deste mundo universitário.</p>
+        </div>
+    </div>
+
+    <div class="infoContainer">
+        <button class="collapsible">Esta informação é fidedigna?
+        </button>
+        <div class="content">
+            <p>Sim! Toda a informação apresentada vem diretamente do website da DGES. O UniStats apenas pegou nessa informação pública e fez um cruzamento de dados para facilitar a sua leitura.</p>
+            <p>No entanto, caso encontres algum erro ou tenhas alguma sugestão envia um email para: <a href="mailto:eduardo.gomes.costa7@gmail.com">eduardo.gomes.costa7@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="infoContainer">
+        <button class="collapsible">Que informação existe?
+        </button>
+        <div class="content">
+            <p>De momento apenas existem as candidaturas e colocações das primeiras fases de acesso ao ensino superior de todos os cursos de universidades públicas desde 2018 a 2023.</p>
+            <p>Por enquanto não existe informação relativa aos politécnicos.</p>
+        </div>
+    </div>
+
+    <div class="infoContainer">
+        <button class="collapsible">
+            Como posso ajudar?
+        </button>
+        <div class="content">
+            <p>Esta é uma iniciativa sem quaisquer fins lucrativos. O seu único intuito é a partilha de informação.</p>
+            <p>Desta forma, a maior ajuda que podes dar é partilhares esta página para que possa chegar ao maior número de pessoas possível!</p>
+        </div>
+    </div>
+
+    <div class="infoContainer">
+        <button class="collapsible">Onde posso encontrar mais informação?
+        </button>
+        <div class="content">
+            <p>Estas páginas devem ajudar:</p>
+            <ul>
+                <li>
+                    <a href="https://www.dges.gov.pt/pt" target="_blank">Webiste DGES</a>
+                </li>
+                <li>
+                    <a href="https://www.dges.gov.pt/pt/pagina/ensino-superior-em-numeros" target="_blank">DGES - Ensino Superior em Números</a>
+                </li>
+                <li>
+                    <a href="https://infocursos.medu.pt/" target="_blank">Info Cursos</a>
+                </li>
+                <li>
+                    <a href="https://inspiring.future.pt/" target="_blank">Inspiring Future</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function changeSize()
+                {
+                    let dashboard = document.getElementById("dashboard");
+
+                    if(window.screen.width <= 500)
+                    {
+                        dashboard.width = 300;
+                        dashboard.height = 225;
+                    }
+                    else if(window.screen.width <= 1000)
+                    {
+                        dashboard.width = 600;
+                        dashboard.height = 400;
+                    }
+                    else
+                    {
+                        dashboard.width = 1024;
+                        dashboard.height = 612;
+                    }
+                }
+
+                window.onresize = changeSize;
+                window.onload = changeSize;
+    </script>
+
+    <script>
+        function collapsible()
+        {  
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+            
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                content.style.maxHeight = null;
+                } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+            } 
+        }
+
+        collapsible();
+    </script>
+</body>
+</html>
