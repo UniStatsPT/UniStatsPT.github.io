@@ -154,4 +154,12 @@ iframe{
     {
         width: 325px;
     }
+
+    iframe{
+        border-radius: 5px;
+        box-shadow: #888888 2.5px 4px;
+        background-color: #d0d3d3;
+        margin: 10px;
+        padding: 5px;
+    }
 }
